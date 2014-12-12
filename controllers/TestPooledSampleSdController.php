@@ -7,6 +7,7 @@ use yii\filters\auth\QueryParamAuth;
 use yii\filters\Cors;
 use yii\web\HeaderCollection;
 use yii\data\ActiveDataProvider;
+use app\models\User;
 
 class TestpooledsamplesdController extends ActiveController 
 {
@@ -59,11 +60,17 @@ class TestpooledsamplesdController extends ActiveController
             $model = new $this->modelClass;
            
             try {
-                //echo Yii::$app->user->id;
-                $provider = new ActiveDataProvider([
-                    'query' => $model->find()->where(['created_by_id' => \Yii::$app->user->id])->orderBy(['create_time'=>SORT_DESC]),
-                    'pagination' => false
-                ]);
+                $user = User::findOne(Yii::$app->user->id);
+                if($user->username == 'guest'){
+                    //we do not want to return any results because there is only one generic guest user
+                    throw new \yii\web\HttpException(404, 'No entries found with this query string');
+                }
+                else{
+                    $provider = new ActiveDataProvider([
+                        'query' => $model->find()->where(['created_by_id' => \Yii::$app->user->id])->orderBy(['create_time'=>SORT_DESC]),
+                        'pagination' => false
+                    ]);
+                }
             } catch (Exception $ex) {
                 throw new \yii\web\HttpException(500, 'Internal server error');
             }
