@@ -36,6 +36,7 @@ $config = [
                     'extraPatterns' => [
                         'GET last' => 'last',
                         'GET first' => 'first',
+                        'GET mine' => 'mine',
                     ]
                 ],
             ],

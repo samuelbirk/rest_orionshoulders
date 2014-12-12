@@ -26,6 +26,8 @@ class TestpooledsamplesdController extends ActiveController
         return $behaviors;
     }
 
+
+
    public function actionLast()
     {
         if (!empty($_GET)) {
@@ -35,6 +37,31 @@ class TestpooledsamplesdController extends ActiveController
                 //echo Yii::$app->user->id;
                 $provider = new ActiveDataProvider([
                     'query' => $model->find()->where(['created_by_id' => \Yii::$app->user->id])->orderBy(['create_time'=>SORT_DESC])->limit(1),
+                    'pagination' => false
+                ]);
+            } catch (Exception $ex) {
+                throw new \yii\web\HttpException(500, 'Internal server error');
+            }
+
+            if ($provider->getCount() <= 0) {
+                throw new \yii\web\HttpException(404, 'No entries found with this query string');
+            } else {
+                return $provider;
+            }
+        } else {
+            throw new \yii\web\HttpException(400, 'No query strings were provided');
+        }
+    }
+
+    public function actionMine()
+    {
+        if (!empty($_GET)) {
+            $model = new $this->modelClass;
+           
+            try {
+                //echo Yii::$app->user->id;
+                $provider = new ActiveDataProvider([
+                    'query' => $model->find()->where(['created_by_id' => \Yii::$app->user->id])->orderBy(['create_time'=>SORT_DESC]),
                     'pagination' => false
                 ]);
             } catch (Exception $ex) {
