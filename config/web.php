@@ -39,6 +39,34 @@ $config = [
                         'GET mine' => 'mine',
                     ]
                 ],
+                ['class' => 'yii\rest\UrlRule', 'controller' => ['testpretestposttest'],
+                    'extraPatterns' => [
+                        'GET last' => 'last',
+                        'GET first' => 'first',
+                        'GET mine' => 'mine',
+                    ]
+                ],
+                ['class' => 'yii\rest\UrlRule', 'controller' => ['testposttestbetweengroups'],
+                    'extraPatterns' => [
+                        'GET last' => 'last',
+                        'GET first' => 'first',
+                        'GET mine' => 'mine',
+                    ]
+                ],
+                ['class' => 'yii\rest\UrlRule', 'controller' => ['testpretestposttestwcontrol'],
+                    'extraPatterns' => [
+                        'GET last' => 'last',
+                        'GET first' => 'first',
+                        'GET mine' => 'mine',
+                    ]
+                ],
+                ['class' => 'yii\rest\UrlRule', 'controller' => ['testconvertdtor'],
+                    'extraPatterns' => [
+                        'GET last' => 'last',
+                        'GET first' => 'first',
+                        'GET mine' => 'mine',
+                    ]
+                ],
             ],
         ],
         'mailer' => [
