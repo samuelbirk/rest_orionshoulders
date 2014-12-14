@@ -5,12 +5,10 @@ namespace app\models;
 use Yii;
 
 /**
- * This is the model class for table "test_convert_d_to_r".
+ * This is the model class for table "test_convert_r_to_d".
  *
  * @property integer $id
- * @property double $d
- * @property integer $n1
- * @property integer $n2
+ * @property double $r
  * @property double $final_result
  * @property string $create_time
  * @property string $update_time
@@ -20,14 +18,14 @@ use Yii;
  * @property integer $deleted
  * @property integer $active
  */
-class TestConvertDToR extends \yii\db\ActiveRecord
+class TestConvertRToD extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
-        return 'test_convert_d_to_r';
+        return 'test_convert_r_to_d';
     }
 
     /**
@@ -36,9 +34,9 @@ class TestConvertDToR extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['d', 'final_result'], 'number'],
-            [['n1', 'n2', 'created_by_id', 'last_modified_by_id', 'history_id', 'deleted', 'active'], 'integer'],
-            [['create_time', 'update_time'], 'safe']
+            [['r', 'final_result'], 'number'],
+            [['create_time', 'update_time'], 'safe'],
+            [['created_by_id', 'last_modified_by_id', 'history_id', 'deleted', 'active'], 'integer']
         ];
     }
 
@@ -74,9 +72,7 @@ class TestConvertDToR extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('app', 'ID'),
-            'd' => Yii::t('app', 'D'),
-            'n1' => Yii::t('app', 'N1'),
-            'n2' => Yii::t('app', 'N2'),
+            'r' => Yii::t('app', 'R'),
             'final_result' => Yii::t('app', 'Final Result'),
             'create_time' => Yii::t('app', 'Create Time'),
             'update_time' => Yii::t('app', 'Update Time'),

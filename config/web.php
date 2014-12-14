@@ -67,6 +67,13 @@ $config = [
                         'GET mine' => 'mine',
                     ]
                 ],
+                ['class' => 'yii\rest\UrlRule', 'controller' => ['testconvertrtod'],
+                    'extraPatterns' => [
+                        'GET last' => 'last',
+                        'GET first' => 'first',
+                        'GET mine' => 'mine',
+                    ]
+                ],
             ],
         ],
         'mailer' => [
