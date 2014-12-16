@@ -74,6 +74,34 @@ $config = [
                         'GET mine' => 'mine',
                     ]
                 ],
+                ['class' => 'yii\rest\UrlRule', 'controller' => ['testconvertttod'],
+                    'extraPatterns' => [
+                        'GET last' => 'last',
+                        'GET first' => 'first',
+                        'GET mine' => 'mine',
+                    ]
+                ],
+                ['class' => 'yii\rest\UrlRule', 'controller' => ['testconvertttor'],
+                    'extraPatterns' => [
+                        'GET last' => 'last',
+                        'GET first' => 'first',
+                        'GET mine' => 'mine',
+                    ]
+                ],
+                ['class' => 'yii\rest\UrlRule', 'controller' => ['testconvertdtologodd'],
+                    'extraPatterns' => [
+                        'GET last' => 'last',
+                        'GET first' => 'first',
+                        'GET mine' => 'mine',
+                    ]
+                ],
+                ['class' => 'yii\rest\UrlRule', 'controller' => ['testconvertlogoddtod'],
+                    'extraPatterns' => [
+                        'GET last' => 'last',
+                        'GET first' => 'first',
+                        'GET mine' => 'mine',
+                    ]
+                ],
             ],
         ],
         'mailer' => [
